@@ -126,3 +126,8 @@ SecureNote is successfully deployed on **Google Cloud Run**. It is fully functio
 - EJS: 38.9%
 - CSS: 3.4%
 ---
+![WhatsApp Image 2025-08-01 at 12 42 31_53f0e27a](https://github.com/user-attachments/assets/4802f8f9-fe2b-46c0-879d-2387f5088aa3)
+![WhatsApp Image 2025-08-01 at 12 43 49_5b2a786b](https://github.com/user-attachments/assets/520d4f57-c94a-45f0-9139-732aa8d6db0f)
+![WhatsApp Image 2025-08-01 at 12 44 32_08b8c937](https://github.com/user-attachments/assets/506dc01b-d4f0-47c8-9908-3c99cec4e09b)
+
+
