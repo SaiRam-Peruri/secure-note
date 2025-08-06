@@ -11,6 +11,10 @@ RUN npm install
 # Copy the full app source
 COPY . .
 
+# Set environment variables for Cloud Run
+ENV NODE_ENV=production
+ENV PORT=8080
+
 # Expose port
 EXPOSE 8080
 

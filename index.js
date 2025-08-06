@@ -84,7 +84,16 @@ app.use((req, res, next) => {
   res.locals.deleted = req.flash("deleted");
   res.locals.appName = process.env.APP_NAME;
   res.locals.currUser = req.user;
-  res.locals.domain = `${process.env.HOST_URL}:${process.env.PORT}`;
+  
+  // Dynamic domain detection for Cloud Run and local development
+  if (process.env.NODE_ENV === 'production' || process.env.K_SERVICE) {
+    // Cloud Run environment - use the request host
+    res.locals.domain = `https://${req.get('host')}`;
+  } else {
+    // Local development
+    res.locals.domain = `${process.env.HOST_URL || 'http://localhost'}:${process.env.PORT || '8080'}`;
+  }
+  
   next();
 });
 
@@ -106,9 +115,12 @@ app.use((err, req, res, next) => {
 });
 
 
-app.listen(process.env.PORT, '0.0.0.0', () => {
-  console.log(
-    `Server is listening at ${process.env.HOST_URL}:${process.env.PORT}\n`
-  );
+const port = process.env.PORT || 8080;
+
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server is listening on port ${port}`);
+  if (process.env.NODE_ENV !== 'production') {
+    console.log(`Local development URL: http://localhost:${port}`);
+  }
 });
 
